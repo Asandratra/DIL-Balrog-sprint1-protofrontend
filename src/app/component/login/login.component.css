@@ -1,0 +1,82 @@
+body{
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+}
+.login-form {
+    width: 330px;
+    height: 440px;
+    background-color: #B68A3D;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.login-form .title {
+    font-weight: 200;
+    color: #f4d26d;
+    font-size: 42px;
+    letter-spacing: 2.10px;
+    line-height: normal;
+    white-space: nowrap;
+    margin: 20px 0px 20px 0;
+}
+
+.login-form .sub-title {
+    font-weight: 100;
+    color: #000000;
+    font-size: 24px;
+    letter-spacing: 0.48px;
+    line-height: normal;
+}
+
+.login-form .input-box {
+    margin: 20px 0px 20px 0px;
+}
+
+.login-form .input-box .label {
+    font-weight: 400;
+    color: #000000;
+    font-size: 16px;
+}
+
+.login-form .input-box .input {
+    width: 260px;
+    height: 35px;
+    background-color: #f4d26d;
+    border-radius: 8px;
+    border: 1px solid;
+    border-color: #4b3b24;
+    box-shadow: inset 3px 3px 4px #00000040;
+}
+
+.login-form .button {
+    margin: 8px 0px 0px 0px;
+    width: 260px;
+    height: 60px;
+    background-color: #dfaf2b;
+    font-weight: 500;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    color: white;
+    box-shadow: 3px 3px 4px #00000040;
+    transition: all .4s;
+}
+.login-form .button:hover {
+    border: 2px solid #f4d26d;
+    background: transparent;
+    color: #f4d26d;
+}
+
+.login-form .button .text {
+    height: 24px;
+    font-weight: 500;
+    font-size: x-large;
+    font-family: "Goudy Bookletter 1911", serif;
+    font-style: normal;
+    letter-spacing: 2px;
+    line-height: normal;
+    white-space: nowrap;
+}

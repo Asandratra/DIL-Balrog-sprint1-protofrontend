@@ -1,0 +1,42 @@
+.feature{
+    padding: 10px 14% 10px;
+}
+
+.feature-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.box{
+    padding: 15px 15px 15px 30px;
+    border-left: 4px solid var(--second-color);
+    box-shadow: 0 10px 25px rgb(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    transition: all .6s;
+    background-color: white;
+}
+.box:hover {
+    transform: translateY(-4px) scale(1.02);
+    border-left: 4px solid var(--text-color);
+    cursor: pointer;
+}
+
+.f-icon i{
+    font-size: 33px;
+}
+
+.f-text h3{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+.f-text p{
+    font-size: var(--p-font);
+    font-weight: 400;
+    color: var(--second-color);
+    line-height: 33px;
+}
