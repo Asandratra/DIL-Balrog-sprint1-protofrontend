@@ -17,7 +17,7 @@
               "base": "docs",
               "browser": ""
             },
-            "baseHref": "/DIL-Balrog-sprint1-protofrontend/",
+            "baseHref": "https://asandratra.github.io/DIL-Balrog-sprint1-protofrontend/",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
