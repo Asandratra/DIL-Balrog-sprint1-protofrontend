@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20px, auto));
     gap: 2rem;
+    margin: 4rem 6rem 4rem 6rem;
 }
 
 .footer-box{
