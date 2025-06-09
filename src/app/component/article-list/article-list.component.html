@@ -5,6 +5,37 @@
     </div>
 
     <div class="n-content">
+        <!-- @for (article of articles; track article.id) {
+            <div class="row">
+                <div class="row-img">
+                    <img [src]="article.image" onerror="this.onerror=null; this.src='gondorDefault.jpg'" >
+                </div>
+                <h3>{{ article.label }}</h3>
+                
+                <div class="stars">
+                    <a href=""><i class="ri-star-line"></i></a>
+                    <a href=""><i class="ri-star-line"></i></a>
+                    <a href=""><i class="ri-star-line"></i></a>
+                    <a href=""><i class="ri-star-line"></i></a>
+                    <a href=""><i class="ri-star-line"></i></a>
+                    <a href="">Not noted yet</a>
+                </div>
+    
+                <div class="row-in">
+                    <div class="row-left">
+                        <a href="">
+                            Ajouter au panier
+                            <i class="ri-shopping-cart-fill"></i>
+                        </a>
+                    </div>
+    
+                    <div class="row-right">
+                        <h6>GAr <span class="price">{{ article.price | number }}</span></h6>
+                    </div>
+                </div>
+            </div>
+
+        } -->
         <div class="row">
             <div class="row-img">
                 <img src="" onerror="this.onerror=null; this.src='gondorDefault.jpg'" >

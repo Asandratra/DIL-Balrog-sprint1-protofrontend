@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { OnInit } from '@angular/core';
+import { ArticleService } from '../../service/article.service';
 
 @Component({
   selector: 'app-banner',
@@ -10,12 +10,17 @@ import { OnInit } from '@angular/core';
   styleUrl: './banner.component.css'
 })
 export class BannerComponent implements OnInit {
+  constructor(private articleService: ArticleService) {}
+
+  dailyArticle : any;
+
   defaultBackground = 'gondorDefaultBanner.jpg';
   //mainBackground = 'Darksword.jpg';
   mainBackground = '';
   currentBackground = '';
 
   ngOnInit(): void {
+    this.loadDailyArticle();
     const img = new Image();
     img.src=this.mainBackground;
     img.onload = () => {
@@ -24,5 +29,9 @@ export class BannerComponent implements OnInit {
     img.onerror = () => {
       this.currentBackground=this.defaultBackground;
     }
+  }
+
+  loadDailyArticle(): void {
+    this.articleService.getDailyArticle().subscribe(data=>this.dailyArticle=data);
   }
 }
