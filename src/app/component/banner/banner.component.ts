@@ -21,6 +21,9 @@ export class BannerComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadDailyArticle();
+    if(this.dailyArticle!=undefined){
+      this.mainBackground=this.dailyArticle.dailyImage;
+    }
     const img = new Image();
     img.src=this.mainBackground;
     img.onload = () => {
@@ -32,6 +35,9 @@ export class BannerComponent implements OnInit {
   }
 
   loadDailyArticle(): void {
-    this.articleService.getDailyArticle().subscribe(data=>this.dailyArticle=data);
+    this.articleService.getDailyArticle().subscribe(data=>{
+      this.dailyArticle=data;
+      console.log(this.dailyArticle);
+    });
   }
 }

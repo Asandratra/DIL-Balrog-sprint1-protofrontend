@@ -7,12 +7,12 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class ArticleService {
-  private apiUrl = `${environment.apiurl}/article`;
+  private apiUrl = `${environment.apiurl}/items`;
 
   constructor(private http: HttpClient) { }
   
   getDailyArticle(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/daily`);
+    return this.http.get(`${this.apiUrl}/dailyItem`);
   }
   getArticles(): Observable<any> {
     return this.http.get(this.apiUrl);

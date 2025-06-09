@@ -1,0 +1,8 @@
+{
+    "api/v1/*": {
+        "target":"https://dil-api.onrender.com/swagger-ui/index.html#",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    }
+}
