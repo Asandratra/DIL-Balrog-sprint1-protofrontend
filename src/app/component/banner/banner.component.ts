@@ -21,23 +21,23 @@ export class BannerComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadDailyArticle();
-    if(this.dailyArticle!=undefined){
-      this.mainBackground=this.dailyArticle.dailyImage;
-    }
-    const img = new Image();
-    img.src=this.mainBackground;
-    img.onload = () => {
-      this.currentBackground=this.mainBackground;
-    };
-    img.onerror = () => {
-      this.currentBackground=this.defaultBackground;
-    }
   }
 
   loadDailyArticle(): void {
     this.articleService.getDailyArticle().subscribe(data=>{
       this.dailyArticle=data;
-      console.log(this.dailyArticle);
+      if(data.dailyImage){
+        this.mainBackground=data.dailyImage;
+      }
+
+      const img = new Image();
+      img.src=this.mainBackground;
+      img.onload = () => {
+        this.currentBackground=this.mainBackground;
+      };
+      img.onerror = () => {
+        this.currentBackground=this.defaultBackground;
+      }
     });
   }
 }
