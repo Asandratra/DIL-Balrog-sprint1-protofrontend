@@ -1,8 +1,7 @@
 <section class="home" 
     [ngStyle]="{
-        'background-size': 'cover',
-        'background-position': 'center center',
-        'background': 'linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url( '+currentBackground+' )'
+        background: 'linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url( '+currentBackground+' ) no-repeat center center',
+        backgroundSize : 'cover%'
     }"
 >
     <div class="home-text">
@@ -10,7 +9,7 @@
         <h1>{{ dailyArticle.label }}</h1>
         <p>GAr <strong class="price">{{ dailyArticle.price | number }}</strong></p>
         <a href="#" class="btn">
-            Voir
+            Ajouter au panier
             <i class="ri-arrow-right-line"></i>
         </a>
     </div>

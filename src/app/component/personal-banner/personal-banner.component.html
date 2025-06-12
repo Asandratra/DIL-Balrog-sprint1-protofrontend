@@ -1,0 +1,46 @@
+<section class="home" 
+    [ngStyle]="{
+        background: 'linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url( '+currentBackground+' ) no-repeat center center',
+        backgroundSize : 'cover%'
+    }"
+>
+    <div class="home-text">
+        <h6>Bienvenu {{ user.prenom }} {{ user.nom }} !<br/> Vous arrivez juste à temps pour le produit du jour</h6>
+        <h1>{{ dailyArticle.label }}</h1>
+        <p>au prix de : GAr <span class="price">{{ dailyArticle.price | number }}</span>
+            <br/>
+            <span class="quantity">Il en reste <span class="price">{{ restant | number }}</span></span>
+        </p>
+        <form action="">
+            <div class="quantity-wrapper">
+                <!-- <label for="quantity">Quantity:</label> -->
+                <div class="quantity-control">
+                  <button type="button" class="qty-btn minus" (click)="addToQuantity(-1)">-</button>
+                  <input type="number" id="quantity" name="quantity" [(ngModel)]="quantity" min="1" max="{{ restant }}">
+                  <button type="button" class="qty-btn plus" (click)="addToQuantity(1)">+</button>
+                </div>
+            </div>
+            <button type="submit" class="btn">
+                Ajouter au panier
+                <i class="ri-arrow-right-line"></i>
+            </button>
+        </form>
+    </div>
+</section>
+<!-- <section class="home" 
+    [ngStyle]="{
+        'background-size': 'cover',
+        'background-position': 'center center',
+        'background': 'linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url( '+currentBackground+' )'
+    }"
+>
+    <div class="home-text">
+        <h6>Article du jour</h6>
+        <h1>Darksword</h1>
+        <p>GAr <strong class="price">100.000</strong></p>
+        <a href="#" class="btn">
+            Voir
+            <i class="ri-arrow-right-line"></i>
+        </a>
+    </div>
+</section> -->

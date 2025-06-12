@@ -4,13 +4,16 @@ header{
     right: 0;
     width: 100%;
     z-index: 1000;
-    background: #B68A3D;
-    box-shadow: 0px 1px 6px 0px rgb(32 33 36 / 5%);
+    background: transparent;
     padding: 18px 4%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    transition: all .6s;
+    transition: all .4s;
+}
+header:hover{
+    background: #B68A3D;
+    box-shadow: 0px 1px 6px 0px rgb(32 33 36 / 5%);
 }
 
 .logo{

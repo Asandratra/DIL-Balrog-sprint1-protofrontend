@@ -7,10 +7,11 @@ import { BestSellingsComponent } from "../best-sellings/best-sellings.component"
 import { NewslettersComponent } from "../newsletters/newsletters.component";
 import { FooterComponent } from "../footer/footer.component";
 import { CopyrightComponent } from "../copyright/copyright.component";
+import { PersonalBannerComponent } from "../personal-banner/personal-banner.component";
 
 @Component({
   selector: 'app-home',
-  imports: [HeaderComponent, BannerComponent, ArticleListComponent, FeaturesComponent, BestSellingsComponent, NewslettersComponent, FooterComponent, CopyrightComponent],
+  imports: [HeaderComponent, BannerComponent, ArticleListComponent, FeaturesComponent, BestSellingsComponent, NewslettersComponent, FooterComponent, CopyrightComponent, PersonalBannerComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

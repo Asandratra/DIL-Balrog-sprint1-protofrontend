@@ -18,16 +18,15 @@ section{
     font-size: var(--h1-font);
     font-weight: 300;
     line-height: 1.1;
-    margin-top: 50px;
+    margin-top: 20px;
     color: #f4d26d;
 }
 .home-text h6{
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 200;
     color: white;
     letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 .home-text p{
     width: 100%;
@@ -57,4 +56,50 @@ section{
 }
 .btn i{
     margin-left: 9px;
+}
+
+.home-text p {
+    font-size: larger;
+}
+
+.quantity-wrapper {
+    font-family:  Arial, Helvetica, sans-serif;
+    margin: 1rem 0;
+}
+
+.quantity-wrapper label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.qty-btn {
+    font-family:  Arial, Helvetica, sans-serif;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background-color: #eee;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.qty-btn:hover {
+    background-color: #ccc;
+}
+
+.quantity-control input[type="number"] {
+    font-family:  Arial, Helvetica, sans-serif;
+    width: 60px;
+    height: 32px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
