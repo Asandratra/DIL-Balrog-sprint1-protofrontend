@@ -10,7 +10,6 @@ body{
     height: 440px;
     background-color: #B68A3D;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
     text-align: center;
 }
 
@@ -43,6 +42,7 @@ body{
 }
 
 .login-form .input-box .input {
+    padding: 10px;
     width: 260px;
     height: 35px;
     background-color: #f4d26d;

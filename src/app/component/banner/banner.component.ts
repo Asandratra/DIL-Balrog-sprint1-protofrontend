@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatDialog } from '@angular/material/dialog';
 
 import { ArticleService } from '../../service/article.service';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-banner',
@@ -10,7 +12,7 @@ import { ArticleService } from '../../service/article.service';
   styleUrl: './banner.component.css'
 })
 export class BannerComponent implements OnInit {
-  constructor(private articleService: ArticleService) {}
+  constructor(private articleService: ArticleService, private matDialog: MatDialog) {}
 
   dailyArticle : any;
 
@@ -39,5 +41,9 @@ export class BannerComponent implements OnInit {
         this.currentBackground=this.defaultBackground;
       }
     });
+  }
+
+  openLoginPopup():void {
+    this.matDialog.open(LoginComponent,{});
   }
 }

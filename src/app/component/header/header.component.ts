@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-header',
@@ -7,5 +9,12 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  constructor(private matDialog:MatDialog){}
 
+  user = null;
+
+  openLoginPopup():void {
+    this.matDialog.open(LoginComponent,{
+    })
+  }
 }

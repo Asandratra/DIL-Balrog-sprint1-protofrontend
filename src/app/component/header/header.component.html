@@ -9,10 +9,20 @@
         <li><a href="#">Contacts</a></li>
     </ul>
 
-    <div class="nav-right">
-        <a href="#"><i class="ri-search-2-line"></i></a>
-        <a href="#"><i class="ri-shopping-cart-line"></i></a>
-        <a href="#"><i class="ri-user-line"></i></a>
-        <div class="bx bx-menu" id="menu-icon"></div>
-    </div>
+    @if (!user) {
+        <div class="nav-right">
+            <a href="#"><i class="ri-search-2-line"></i></a>
+            <a href="#" (click)="$event.preventDefault(); openLoginPopup()"><i class="ri-shopping-cart-line"></i></a>
+            <a href="#" (click)="$event.preventDefault(); openLoginPopup()"><i class="ri-user-line"></i></a>
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+    }
+    @else {
+        <div class="nav-right">
+            <a href="#"><i class="ri-search-2-line"></i></a>
+            <a href="#"><i class="ri-shopping-cart-line"></i></a>
+            <a href="#"><i class="ri-user-line"></i></a>
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+    }
 </header>
