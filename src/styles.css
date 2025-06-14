@@ -147,6 +147,7 @@ body{
 
 .center-text{
     text-align: center;
+    margin-top: 3vh;
 }
 .center-text h2{
     font-size: var(--h2-font);
