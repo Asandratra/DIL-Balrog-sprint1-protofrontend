@@ -2,6 +2,9 @@
 <section class="n-product">
     <div class="center-text">
         <h2>Nos Produits</h2>
+        @if(articles.length<=0){
+            <h2>Chargement...</h2>
+        }
     </div>
 
     <div class="n-content">

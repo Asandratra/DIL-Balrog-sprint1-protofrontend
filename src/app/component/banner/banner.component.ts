@@ -3,7 +3,9 @@ import { CommonModule } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 
 import { ArticleService } from '../../service/article.service';
+
 import { LoginComponent } from '../login/login.component';
+import { PopupmessageComponent } from '../popupmessage/popupmessage.component';
 
 @Component({
   selector: 'app-banner',
@@ -26,24 +28,37 @@ export class BannerComponent implements OnInit {
   }
 
   loadDailyArticle(): void {
-    this.articleService.getDailyArticle().subscribe(data=>{
-      this.dailyArticle=data;
-      if(data.dailyImage){
-        this.mainBackground=data.dailyImage;
-      }
+    this.articleService.getDailyArticle().subscribe(
+      {
+        next: (data) => {
+          this.dailyArticle=data;
+          if(data.dailyImage){
+            this.mainBackground=data.dailyImage;
+          }
 
-      const img = new Image();
-      img.src=this.mainBackground;
-      img.onload = () => {
-        this.currentBackground=this.mainBackground;
-      };
-      img.onerror = () => {
-        this.currentBackground=this.defaultBackground;
+          const img = new Image();
+          img.src=this.mainBackground;
+          img.onload = () => {
+            this.currentBackground=this.mainBackground;
+          }
+          img.onerror = () => {
+            this.currentBackground=this.defaultBackground;
+          }
+        },
+        error: (error) => {
+          /* this.openAlert('Aucun produit du jour'); */
+          this.currentBackground=this.defaultBackground;
+        }
       }
-    });
+    );
   }
 
   openLoginPopup():void {
     this.matDialog.open(LoginComponent,{});
+  }
+  openAlert(alertMessage:string):void {
+    this.matDialog.open(PopupmessageComponent,{
+      data : { message: alertMessage }
+    })
   }
 }

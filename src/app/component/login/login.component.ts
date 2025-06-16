@@ -21,7 +21,7 @@ export class LoginComponent {
   }
 
   login():void {
-    /* var user: any = {
+    var user: any = {
       pseudo: 'Gelano',
       motdepasse: 'etjlerendraipa',
       nom: 'Bilbon',
@@ -30,8 +30,8 @@ export class LoginComponent {
     sessionStorage.setItem("currentUser",JSON.stringify(user));
     this.router.navigateByUrl('home');
     window.location.reload();
-    this.closeLogin(); */
-    this.openAlert("Impossible de se connecter. Vérifiez le pseudo ou le mot de passe.");
+    this.closeLogin();
+    this.openAlert("Erreur d'identification. Vérifiez bien le pseudo et le mot de passe ou essayez ultérieurement.");
   }
 
   openAlert(alertMessage:string):void {

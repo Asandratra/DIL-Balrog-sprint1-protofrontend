@@ -5,13 +5,18 @@
     }"
 >
     <div class="home-text">
-        <h6>Produit du jour</h6>
-        <h1>{{ dailyArticle.label }}</h1>
-        <p>GAr <strong class="price">{{ dailyArticle.price | number }}</strong></p>
-        <a href="#" class="btn" (click)="$event.preventDefault(); openLoginPopup()">
-            Ajouter au panier
-            <i class="ri-arrow-right-line"></i>
-        </a>
+        @if(dailyArticle){
+            <h6>Produit du jour</h6>
+            <h1>{{ dailyArticle.label }}</h1>
+            <p>GAr <strong class="price">{{ dailyArticle.price | number }}</strong></p>
+            <a href="#" class="btn" (click)="$event.preventDefault(); openLoginPopup()">
+                Ajouter au panier
+                <i class="ri-arrow-right-line"></i>
+            </a>
+        }
+        @else {
+            <h6>Chargement...</h6>
+        }
     </div>
 </section>
 <!-- <section class="home" 
