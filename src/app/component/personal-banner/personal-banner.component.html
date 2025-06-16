@@ -5,7 +5,7 @@
     }"
 >
     <div class="home-text">
-        <h6>Bienvenu {{ user.prenom }} {{ user.nom }} !<br/> Vous arrivez juste à temps pour le produit du jour</h6>
+        <h6>Bienvenu {{ user.nom }} {{ user.prenom }} !<br/> Vous arrivez juste à temps pour le produit du jour</h6>
         <h1>{{ dailyArticle.label }}</h1>
         <p>au prix de : GAr <span class="price">{{ dailyArticle.price | number }}</span>
             <br/>

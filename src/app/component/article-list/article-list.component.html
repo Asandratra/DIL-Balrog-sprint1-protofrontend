@@ -23,10 +23,19 @@
     
                 <div class="row-in">
                     <div class="row-left">
-                        <a href="">
-                            Ajouter au panier
-                            <i class="ri-shopping-cart-fill"></i>
-                        </a>
+                        <p>En stock : <span class="price">{{ article.quantityInStock }}</span></p>
+                        @if (user==null) {
+                            <a href="" (click)="$event.preventDefault(); openLoginPopup()">
+                                Ajouter au panier
+                                <i class="ri-shopping-cart-fill"></i>
+                            </a>
+                        }
+                        @else {
+                            <form action="">
+                                <input class="price center-text" type="number" value="1" min="1" max="{{ article.quantityInStock }}"><br/>
+                                <button class="btn" type="submit">Ajouter au panier<i class="ri-shopping-cart-fill"></i></button>
+                            </form>
+                        }
                     </div>
     
                     <div class="row-right">

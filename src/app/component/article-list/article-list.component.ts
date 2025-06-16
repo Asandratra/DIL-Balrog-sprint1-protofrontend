@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginComponent } from '../login/login.component';
 
 import { ArticleService } from '../../service/article.service';
 
@@ -10,7 +12,9 @@ import { ArticleService } from '../../service/article.service';
   styleUrl: './article-list.component.css'
 })
 export class ArticleListComponent implements OnInit {
-  constructor(private articleService: ArticleService){}
+  constructor(private matDialog: MatDialog, private articleService: ArticleService){}
+  
+  user = sessionStorage.getItem('currentUser')? JSON.parse(sessionStorage.getItem('currentUser')!) : null;
   
   articles: any[] = [];
 
@@ -20,5 +24,9 @@ export class ArticleListComponent implements OnInit {
 
   loadArticles(): void {
     this.articleService.getArticles().subscribe(data=> this.articles=data.content);
+  }
+  openLoginPopup():void {
+    this.matDialog.open(LoginComponent,{
+    })
   }
 }

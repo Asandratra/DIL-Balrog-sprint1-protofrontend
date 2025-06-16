@@ -40,6 +40,20 @@
     margin-top: 5px;
 }
 
+.row-left button{
+    border: 0;
+    background-color: transparent;
+    font-size: var(--p-font);
+    font-weight: 100;
+    color: var(--second-color);
+    transition: all .4s;
+}
+
+.row-left button:hover{
+    color: var(--text-color);
+    cursor: pointer;
+}
+
 .row-left a{
     font-size: var(--p-font);
     font-weight: 100;
@@ -48,6 +62,7 @@
 }
 .row-left a:hover{
     color: var(--text-color);
+    cursor: pointer;
 }
 .row-left i{
     margin-left: 6px;
@@ -63,6 +78,8 @@
     text-align: center;
     margin-top: 4rem;
 }
+
+btn
 
 .btn2{
     display: inline-block;

@@ -27,4 +27,11 @@ export class HeaderComponent {
   openProfile():void {
     if(this.user==null) this.openLoginPopup();
   }
+
+  disconnect():void {
+    this.user=null;
+    sessionStorage.removeItem('currentUser');
+    this.router.navigateByUrl('home');
+    window.location.reload();
+  }
 }
