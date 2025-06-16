@@ -16,5 +16,7 @@ import { PersonalBannerComponent } from "../personal-banner/personal-banner.comp
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+  
+  user = sessionStorage.getItem('currentUser')? JSON.parse(sessionStorage.getItem('currentUser')!) : null;
 
 }

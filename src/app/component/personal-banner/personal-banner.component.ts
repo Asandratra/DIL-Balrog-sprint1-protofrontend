@@ -12,11 +12,8 @@ import { ArticleService } from '../../service/article.service';
 })
 export class PersonalBannerComponent implements OnInit {
   constructor(private articleService: ArticleService) {}
-
-  user : any = {
-    nom : 'Rakoto',
-    prenom : 'Mitia'
-  }
+  
+  user = sessionStorage.getItem('currentUser')? JSON.parse(sessionStorage.getItem('currentUser')!) : null;
 
   restant = 12;
   quantity = 1;

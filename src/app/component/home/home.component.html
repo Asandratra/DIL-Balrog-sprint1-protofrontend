@@ -4,8 +4,12 @@
     <!-- end header -->
     
     <!-- home -->
-        <app-banner/>
-        <!-- <app-personal-banner/> -->
+        @if (user==null) {
+            <app-banner/>
+        }
+        @else {
+            <app-personal-banner/>
+        }
     <!-- end home -->
     
     <!-- products -->
