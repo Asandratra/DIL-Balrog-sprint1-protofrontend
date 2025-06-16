@@ -1,8 +1,9 @@
 import { Component, inject } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Router} from '@angular/router';
+import { PopupmessageComponent } from '../popupmessage/popupmessage.component';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { RouterModule, Router} from '@angular/router';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  constructor(private matDialogRef:MatDialogRef<LoginComponent>){}
+  constructor(private matDialogRef:MatDialogRef<LoginComponent>, public matDialog:MatDialog){}
 
   router = inject(Router);
 
@@ -20,7 +21,7 @@ export class LoginComponent {
   }
 
   login():void {
-    var user: any = {
+    /* var user: any = {
       pseudo: 'Gelano',
       motdepasse: 'etjlerendraipa',
       nom: 'Bilbon',
@@ -29,6 +30,13 @@ export class LoginComponent {
     sessionStorage.setItem("currentUser",JSON.stringify(user));
     this.router.navigateByUrl('home');
     window.location.reload();
-    this.closeLogin();
+    this.closeLogin(); */
+    this.openAlert("Impossible de se connecter. Vérifiez le pseudo ou le mot de passe.");
+  }
+
+  openAlert(alertMessage:string):void {
+    this.matDialog.open(PopupmessageComponent,{
+      data : { message: alertMessage }
+    })
   }
 }
