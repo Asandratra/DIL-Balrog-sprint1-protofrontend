@@ -6,13 +6,21 @@
         <h2 class="sub-title">Identification</h2>
     </div>
     <div>
-        <form (ngSubmit)="login()">
+        <form (ngSubmit)="login()" #identificationForm="ngForm">
             <div class="input-box">
                 <div>
                     <label class="label" for="">Pseudo</label>
                 </div>
                 <div>
-                    <input class="input" type="text">
+                    <input
+                        class="input"
+                        type="text"
+                        id="pseudo"
+                        name="pseudo"
+                        placeholder="Votre pseudo ici"
+                        [(ngModel)]="loginInfo.username"
+                        required
+                    >
                 </div>
             </div>
             <div class="input-box">
@@ -20,11 +28,24 @@
                     <label class="label" for="">Mot de passe</label>
                 </div>
                 <div>
-                    <input class="input" type="password">
+                    <input
+                        class="input"
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Mot de passe"
+                        [(ngModel)]="loginInfo.password"
+                        required
+                    >
                 </div>
             </div>
             <div>
-                <button class="button" type="submit"><span class="text">Se connecter</span></button>
+                @if(!loading){
+                    <button class="button" type="submit" [disabled]="identificationForm.invalid"><span class="text">Se connecter</span></button>
+                }
+                @else {
+                    <button class="button" type="submit" disabled><span class="text">Identification...</span></button>
+                }
             </div>
         </form>
     </div>

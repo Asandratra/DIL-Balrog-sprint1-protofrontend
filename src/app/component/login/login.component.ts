@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Router} from '@angular/router';
 import { PopupmessageComponent } from '../popupmessage/popupmessage.component';
 
+import { AccountService } from '../../service/account.service';
+
 @Component({
   selector: 'app-login',
   imports: [RouterModule,CommonModule,FormsModule],
@@ -12,26 +14,40 @@ import { PopupmessageComponent } from '../popupmessage/popupmessage.component';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  constructor(private matDialogRef:MatDialogRef<LoginComponent>, public matDialog:MatDialog){}
+  constructor(private accountService:AccountService, private matDialogRef:MatDialogRef<LoginComponent>, public matDialog:MatDialog){}
 
   router = inject(Router);
+
+  loading=false;
+
+  loginInfo = {
+    username : '',
+    password : ''
+  }
 
   closeLogin():void {
     this.matDialogRef.close();
   }
 
   login():void {
-    var user: any = {
-      pseudo: 'Gelano',
-      motdepasse: 'etjlerendraipa',
-      nom: 'Bilbon',
-      prenom: 'Sake'
+    if(this.loginInfo.username && this.loginInfo.password){
+      this.loading=true;
+      this.accountService.login(this.loginInfo).subscribe({
+        next:(data) => {
+          sessionStorage.setItem("currentUser",JSON.stringify(data));
+          this.router.navigateByUrl('home');
+          window.location.reload();
+          this.closeLogin();
+        },
+        error:(error) => {
+          this.openAlert("Erreur d'identification. Veuillez vérifier le pseudo et le mot de passe ou réessayer ultérieurement.");
+        }
+      })
     }
-    sessionStorage.setItem("currentUser",JSON.stringify(user));
-    this.router.navigateByUrl('home');
-    window.location.reload();
-    this.closeLogin();
-    this.openAlert("Erreur d'identification. Vérifiez bien le pseudo et le mot de passe ou essayez ultérieurement.");
+    else{
+      this.openAlert("Veuillez bien insérer votre pseudo et votre mot de passe.");
+    }
+    this.loading=false
   }
 
   openAlert(alertMessage:string):void {
