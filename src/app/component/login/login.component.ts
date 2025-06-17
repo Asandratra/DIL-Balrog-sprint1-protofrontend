@@ -6,6 +6,7 @@ import { RouterModule, Router} from '@angular/router';
 import { PopupmessageComponent } from '../popupmessage/popupmessage.component';
 
 import { AccountService } from '../../service/account.service';
+import { JwtDecoderService } from '../../decoder/jwt-decoder.service';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +18,7 @@ export class LoginComponent {
   constructor(private accountService:AccountService, private matDialogRef:MatDialogRef<LoginComponent>, public matDialog:MatDialog){}
 
   router = inject(Router);
+  decoder = inject(JwtDecoderService);
 
   loading=false;
 
@@ -34,12 +36,17 @@ export class LoginComponent {
       this.loading=true;
       this.accountService.login(this.loginInfo).subscribe({
         next:(data) => {
-          sessionStorage.setItem("currentUser",JSON.stringify(data));
+          const decodedToken = this.decoder.decode(data);
+          const client = {
+            pseudo : decodedToken.sub
+          }
+          sessionStorage.setItem("currentUser",JSON.stringify(client));
           this.router.navigateByUrl('home');
           window.location.reload();
           this.closeLogin();
         },
         error:(error) => {
+          console.log(error);
           this.openAlert("Erreur d'identification. Veuillez vérifier le pseudo et le mot de passe ou réessayer ultérieurement.");
         }
       })

@@ -1,4 +1,4 @@
 export const environment = {
     production: false,
-    apiurl:'https://dil-api.onrender.com'
+    apiurl:'http://localhost:8080'
 }

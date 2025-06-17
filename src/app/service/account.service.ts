@@ -12,6 +12,6 @@ export class AccountService {
   constructor(private http:HttpClient) { }
 
   login(client: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/login`, client);
+    return this.http.post(`${this.apiUrl}/login`, client, { responseType: 'text' });
   }
 }

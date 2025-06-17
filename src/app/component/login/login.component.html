@@ -40,11 +40,11 @@
                 </div>
             </div>
             <div>
-                @if(!loading){
-                    <button class="button" type="submit" [disabled]="identificationForm.invalid"><span class="text">Se connecter</span></button>
+                @if(loading){
+                    <button class="button" type="submit" disabled><span class="text">Identification...</span></button>
                 }
                 @else {
-                    <button class="button" type="submit" disabled><span class="text">Identification...</span></button>
+                    <button class="button" type="submit" [disabled]="identificationForm.invalid"><span class="text">Se connecter</span></button>
                 }
             </div>
         </form>

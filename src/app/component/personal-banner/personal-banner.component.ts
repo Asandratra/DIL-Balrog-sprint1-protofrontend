@@ -15,7 +15,7 @@ export class PersonalBannerComponent implements OnInit {
   
   user = sessionStorage.getItem('currentUser')? JSON.parse(sessionStorage.getItem('currentUser')!) : null;
 
-  restant = 12;
+  restant = 1;
   quantity = 1;
 
   dailyArticle : any;
@@ -32,6 +32,7 @@ export class PersonalBannerComponent implements OnInit {
   loadDailyArticle(): void {
     this.articleService.getDailyArticle().subscribe(data=>{
       this.dailyArticle=data;
+      this.restant=data.quantityInStock
       if(data.dailyImage){
         this.mainBackground=data.dailyImage;
       }
